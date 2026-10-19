@@ -1,0 +1,148 @@
+{
+  "checked_at_utc": "2026-10-19T14:07:53.874208+00:00",
+  "status": "passed_with_known_limitations",
+  "checks": 13539,
+  "failures": [],
+  "source_hashes": {
+    "results/task1_dpo/eval/beta_0.03/generations.jsonl": "95b4eb36c74408abb69773dd24b8faaa2a963b7ca417cad0e7f09b621d3a08d9",
+    "results/task1_dpo/eval/beta_0.03/metrics.json": "ad5f5effcd9ebc03b015be5a3e3ccfa04465cbea0678825d444e577f5f81601c",
+    "results/task1_dpo/eval/beta_0.03/pairs_standard.jsonl": "f8b91556f2bedbc23b9bd229879bf3b6c6e581befdef39838482d27bd11835bc",
+    "results/task1_dpo/eval/beta_0.03/pairs_stratified.jsonl": "6575615dde71b1d4c5750e3f80bec3cc18c29047bbf2c3e991fd7319ede5c023",
+    "results/task1_dpo/eval/beta_0.03/word_limit.jsonl": "d33ee13bee7a67f58aa65a3d2de1ff6a9f29d51bd767415542ad884f54471c93",
+    "results/task1_dpo/eval/beta_0.1/generations.jsonl": "be618f5acfeb127d25423e695834b6577b2b885314cdaf0faeebfee0cac30123",
+    "results/task1_dpo/eval/beta_0.1/metrics.json": "2780be0b75a41cf871283816ab556df1b00c94beea023109c64ed469fdb48e18",
+    "results/task1_dpo/eval/beta_0.1/pairs_standard.jsonl": "dca9c085d7ffa4c0e0424a4485519d6bbd7501a3673288c797461c74f684e2c4",
+    "results/task1_dpo/eval/beta_0.1/pairs_stratified.jsonl": "b90a3717a21d0584f1065a406dd9bf38a3cf775c9ad213d78339e896c0c3cd3b",
+    "results/task1_dpo/eval/beta_0.1/word_limit.jsonl": "91f2bacb5bce22528a93e09390f6d4ac0ad3c430b59188eda1ceea577cd46a09",
+    "results/task1_dpo/eval/beta_0.3/generations.jsonl": "53cda2186c520958e863236afecb3df5017b04c9b1b7d8e918a4da85c5a36bc6",
+    "results/task1_dpo/eval/beta_0.3/metrics.json": "68ab1dceb2a9faad4398bfdb09a35a269a75059b8d42582668439d7bafb3ecf5",
+    "results/task1_dpo/eval/beta_0.3/pairs_standard.jsonl": "4cfea9638cd081fb971ce125f0dc2f585da59bcc871025d09f5f84b4eefb5e5e",
+    "results/task1_dpo/eval/beta_0.3/pairs_stratified.jsonl": "b924bc2991fe34377b00fc390092dbf7b85a04e666d8231fe48c80d1eb8d426b",
+    "results/task1_dpo/eval/beta_0.3/word_limit.jsonl": "820f571ee13bd39e8b19e6457d2640d798fe9f382268c707c1994ac5d74b9cd0",
+    "results/task1_dpo/eval/length_balanced/generations.jsonl": "956f60d60c050fec2a416dfa45e4ece4ea44316a35b438ede86deed9989093c6",
+    "results/task1_dpo/eval/length_balanced/metrics.json": "3759828666016f094465e29cdab1bb5adc0614438d64c79e2ee33336829a94d5",
+    "results/task1_dpo/eval/length_balanced/pairs_standard.jsonl": "fddba8ff5f5821bfd8536ae0034886b9f7b7dcea0b04071cdcd787b3b7db53b0",
+    "results/task1_dpo/eval/length_balanced/pairs_stratified.jsonl": "3109ba52debe29599af19a9b33752b067e0ae7df618259c773ad1c987a57b825",
+    "results/task1_dpo/eval/length_balanced/word_limit.jsonl": "680cf38621bb6cf409a98f2fc768a8d6968d8bc06944585a4562e9d021d056e6",
+    "results/task1_dpo/eval/sft/generations.jsonl": "d163ac7ad693ce12f72d7e1a3cccfa3e1afd7e0c691b5657a93211e30d6bb896",
+    "results/task1_dpo/eval/sft/metrics.json": "9d997fe101440f5fd6dc186d26315ff7e842267cefdfc2eda091a9bccc9a7013",
+    "results/task1_dpo/eval/sft/pairs_standard.jsonl": "f49f40b2c017a3c60a9c4598cb1c9971313b00a2427c8d2d7f0c5a665b46c6d8",
+    "results/task1_dpo/eval/sft/pairs_stratified.jsonl": "631da8e69affec098882b7b85ab27b757a077a7c63c41043009d25cd7461adc1",
+    "results/task1_dpo/eval/sft/word_limit.jsonl": "8b32dbd69ad676623d9b0e92c7a4b5bb3c1d815965626d82efdf6bc8a562ef8d",
+    "results/task1_dpo/eval/standard/generations.jsonl": "07c25849a779726b5ebf8567595e3451ba309ae7e5c49638dc8ef326c3c3bbdb",
+    "results/task1_dpo/eval/standard/metrics.json": "1deec9116e11b177e96a326414f9f012a62ed78f9f35693d90ddaee655a696f7",
+    "results/task1_dpo/eval/standard/pairs_standard.jsonl": "b544cf84fa180fac517ad02a38e647be627da94587a9b137732447722643ac42",
+    "results/task1_dpo/eval/standard/pairs_stratified.jsonl": "996414615b2a15d0f9eb14745a4ce2304b793788b50bb2a82ad65a60e659ab4c",
+    "results/task1_dpo/eval/standard/word_limit.jsonl": "2d8312266de0daa74edac3a62c282a29a85c92e7659649fe75a25ca6c21a35f7",
+    "results/task2_ppo/eval/fork_eps0.05_kl0.1/generations.jsonl": "4706102750b8e12c77b4e62c96c5fbdd12589f8242f20d39fa006bcff69229ad",
+    "results/task2_ppo/eval/fork_eps0.05_kl0.1/metrics.json": "7df96abac343c7b1aaa452695fa912cb87de34e95737b2603ae16db5f1ae821e",
+    "results/task2_ppo/eval/fork_eps0.2_kl0/generations.jsonl": "000cce874a12618a00367d987e185a0e6dcf4508bf483a5b3b45fded18de55fe",
+    "results/task2_ppo/eval/fork_eps0.2_kl0/metrics.json": "2f62deff61bf70e424a55ad8dd3a7bf2a35939ee5ebe9ff8b413629c8bcf69ce",
+    "results/task2_ppo/eval/fork_eps0.2_kl0.1/generations.jsonl": "4706102750b8e12c77b4e62c96c5fbdd12589f8242f20d39fa006bcff69229ad",
+    "results/task2_ppo/eval/fork_eps0.2_kl0.1/metrics.json": "a062c68f57cdb6278d69d99f9357915c21ef01c8d90d8715a21c6ed979aba326",
+    "results/task2_ppo/eval/fork_eps0.2_kl0.2/generations.jsonl": "86bcec9f92eb07ac9408cfe53f963fbdf72a1b6575a7db01941a728321d442bc",
+    "results/task2_ppo/eval/fork_eps0.2_kl0.2/metrics.json": "c4ecfaff3f9ae8789feeaf1c0fc831d0b63abe969a3a22a2eeb36867db060206",
+    "results/task2_ppo/eval/fork_eps0.5_kl0.1/generations.jsonl": "4706102750b8e12c77b4e62c96c5fbdd12589f8242f20d39fa006bcff69229ad",
+    "results/task2_ppo/eval/fork_eps0.5_kl0.1/metrics.json": "cf1fd6534e3a7978d363d58accadd91aeae76bfae16ad87333ba4561c90aac5e",
+    "results/task2_ppo/eval/midpoint/generations.jsonl": "7ff976268a08be92ab87c32678086d93caad02d39fde04f50bb2f14c8008995d",
+    "results/task2_ppo/eval/midpoint/metrics.json": "9538bca448e076178e64cf4ef8aa6e7954f4e49c070edd9a3ce67d233c0245b7",
+    "results/task2_ppo/eval/standard/generations.jsonl": "b009596e6a63aaa9105b7a049b9b3511466ebf674cdc6b6c4842d6af242f7556",
+    "results/task2_ppo/eval/standard/metrics.json": "7377c771cc4895b1d86d02a8c3349f67045f15301e32d06a562ef193a126fa1f",
+    "results/task3_grpo/eval/midpoint/generations.jsonl": "a1e19ae0d03e62c7213d1e6ae57e36a4b5fc7a5decf56bc5d3c33ea992d6c7f9",
+    "results/task3_grpo/eval/midpoint/metrics.json": "574b72d99f890484428c6d81e8cbff0624ebcda9f4b4a49f2886e59c098cf8d9",
+    "results/task3_grpo/eval/norm_dr_grpo/generations.jsonl": "c0d5399b8e09bfd69c87cf060c1fa9cfa27334a8010364f12fc1a3205e683f94",
+    "results/task3_grpo/eval/norm_dr_grpo/metrics.json": "cd7a737dd9858fe9c9b662b0946edb05188b8de66cd9f6c99e1a731e186c35af",
+    "results/task3_grpo/eval/norm_grpo/generations.jsonl": "3bc3e2618c8d41cf462b72f27a19d421586d90ee10b3622ea529ae5aa2d3eddb",
+    "results/task3_grpo/eval/norm_grpo/metrics.json": "305e06620e86b723f26afe80c6fe2e8e9723d00bdf8218457127c959e74d7ea2",
+    "results/task3_grpo/eval/standard/generations.jsonl": "b3cdb7fb9dfa3b81afdbf253807f773b71bf7b3c3ee95ffd8229d26da078d4fc",
+    "results/task3_grpo/eval/standard/metrics.json": "84c743b98fa62c87d533c39b8b4a6e97a9cd18b99f267b87cb3459c622627b65",
+    "results/task2_ppo/train/fork_eps0.05_kl0.1/summary.json": "558fd7eab086e5e05fe15038c1c5f4e38e5dd17a067f1d8b384f6f9497f88558",
+    "results/task2_ppo/train/fork_eps0.05_kl0.1/rollouts.jsonl": "f342099bb689174a79bcfac87d107b0fe3c51e86788ea24c525d6206d6a062f3",
+    "results/task2_ppo/train/fork_eps0.2_kl0/summary.json": "ec01bc9feac361211bd5b5e8004f9822c291c34b90e86f3fa54db3d41d91f8ca",
+    "results/task2_ppo/train/fork_eps0.2_kl0/rollouts.jsonl": "f342099bb689174a79bcfac87d107b0fe3c51e86788ea24c525d6206d6a062f3",
+    "results/task2_ppo/train/fork_eps0.2_kl0.1/summary.json": "9a7aea938e940091a51ddd47c1d5068f6b9cbf2fe3045c6503b6d93630345b83",
+    "results/task2_ppo/train/fork_eps0.2_kl0.1/rollouts.jsonl": "f342099bb689174a79bcfac87d107b0fe3c51e86788ea24c525d6206d6a062f3",
+    "results/task2_ppo/train/fork_eps0.2_kl0.2/summary.json": "af5d3e4b4fb1913e8fe5daca825b65bce35a17b05b75cf8722d543d0179f64cf",
+    "results/task2_ppo/train/fork_eps0.2_kl0.2/rollouts.jsonl": "a33be6ef76172ffc71c01bf291a54722da15c56e1df73c6c3d11dcd6cc5ed39a",
+    "results/task2_ppo/train/fork_eps0.5_kl0.1/summary.json": "02fcbc24a96001ab48ee61a961be1b70cf4adb7e97018c505ffefe89ee8fca4a",
+    "results/task2_ppo/train/fork_eps0.5_kl0.1/rollouts.jsonl": "f342099bb689174a79bcfac87d107b0fe3c51e86788ea24c525d6206d6a062f3",
+    "results/task2_ppo/train/standard/summary.json": "ea36b8c25685ba59384f9207af4dfd0ded03a53b941c28adb338ea44d96e448d",
+    "results/task2_ppo/train/standard/rollouts.jsonl": "e04549da099233c4bb400de9ee65bf43b9561d6a0f3cc995d03e5b9488455412",
+    "results/task3_grpo/train/norm_dr_grpo/summary.json": "def745c7ab4a22fb58ba9ecce35d065f64f65020a77f6c09c9a62b6655ac0968",
+    "results/task3_grpo/train/norm_dr_grpo/completions.jsonl": "2a0e91127ee442617aa65fe29c39db629ff4d10d5d2e4c3f0b0ad00e0aa1efc2",
+    "results/task3_grpo/train/norm_grpo/summary.json": "db0969f6abf41f086fefd4378c70204810767a5273e52ef6e5cecd5a6baf5ece",
+    "results/task3_grpo/train/norm_grpo/completions.jsonl": "b3cb18e7f0e0ad7490126f3e3ea50fc9b42cbf0b31f762b987b9659c67942c30",
+    "results/task3_grpo/train/standard/summary.json": "b6018ac961e874a6ffc0f73ab41b873a36f54aa2e66799f144184f8a631b02b0",
+    "results/task3_grpo/train/standard/completions.jsonl": "eda75fa664137127e43ed36c05a5636793beddb304cbe52c73482b8c63981aa4",
+    "results/task4_safety/safety_rates.csv": "4b4fa7036261fa92272401692beaf596d802afe06f1770fabf959ef37a0ceeb0",
+    "results/task4_safety/judged_sft.jsonl": "08265ca52b8e47f276641e22fccd8973972dece7c55a75190abf5e2275546295",
+    "results/task4_safety/judged_dpo.jsonl": "0548d0ca77cf03c8396bda937684a792e7a2ac1875e7c55a05a45c92643a92ac",
+    "results/task4_safety/judged_ppo.jsonl": "bc90426355e215ed430911803e681ffdffec6e8ab791350f48dfc2c47265f75d",
+    "results/task4_safety/judged_grpo.jsonl": "75f23972c6b294c2d587cb563da1a6c1c68e396358be1306b459a09d2243f8e3",
+    "results/task5_feedback/gsm/metrics.json": "85fda9ae82444b447a8a073bde135b202419bbc56dc73554f194e3ae397d8c21",
+    "results/task5_feedback/gsm/generated_sft.jsonl": "58d20e6fa23ed169857140308f7f353fd64f513d03f246bef8b1c5bbf32c7ba7",
+    "results/task5_feedback/gsm/generated_rlvr.jsonl": "ee0b82f4c930726a650259fac50c321fa80ee15985c66a0805e39c7a68bf069b",
+    "results/task5_feedback/gsm/generated_rlaif.jsonl": "49a2c67ca44541711c6cf0def71fc0e398cfac02e01701003a3363290559e7d3",
+    "results/task5_feedback/gsm/pairwise.jsonl": "e3bbfef28e4fa62dd82b6e22aee32e2ff17bf650ebc62afd524c542a04eff122",
+    "results/task5_feedback/transfer/metrics.json": "92a2ea55155f066e2706176412f5c78c96ec03789f3ed8208cf3d4b7434a5d31",
+    "results/task5_feedback/transfer/generated_sft.jsonl": "8b0368553933280dd9873c2b2e66d9588402d73b8edc5f09ea5c8519a170725d",
+    "results/task5_feedback/transfer/generated_rlvr.jsonl": "0252e4c2c96c8f9b8e7dda65ca51f6c2b3008abdf3b7bfcd5ea980b55f484aac",
+    "results/task5_feedback/transfer/generated_rlaif.jsonl": "c0a04319a66217a05fecf4492213f2e7b2787436d9d7ee3a5db9a4a7a82f2a91",
+    "results/task5_feedback/transfer/pairwise.jsonl": "40b2f1719810517a400e007cd63afa3214b113358f323ea59b5d1bc4af0e9947",
+    "results/task5_feedback/diagnostics/summary.json": "1f44727cda3f148aa7b1066e6e5e866c42ffd40f8f66512a75fb21aead6bea2e",
+    "results/task5_feedback/diagnostics/pairs.jsonl": "a6d5946a009622be2a2d6b0952198125b83f9cee799013aa4a0236119c03ea8d",
+    "results/task5_feedback/diagnostics/variant_scores.csv": "d31db6c3aca084e61f565418effbae48d818bbc55ade66d3cfe2c1fef30e524a"
+  },
+  "actual_short_fork_tokens": {
+    "task2_ppo/fork_eps0.05_kl0.1": 1423,
+    "task2_ppo/fork_eps0.2_kl0": 1423,
+    "task2_ppo/fork_eps0.2_kl0.1": 1423,
+    "task2_ppo/fork_eps0.2_kl0.2": 1423,
+    "task2_ppo/fork_eps0.5_kl0.1": 1423,
+    "task3_grpo/norm_dr_grpo": 4914,
+    "task3_grpo/norm_grpo": 4793
+  },
+  "safety_label_contradictions": {
+    "sft": {
+      "safe_labeled_as_unsafe_request": 0.42,
+      "unsafe_labeled_as_safe_request": 0.125
+    },
+    "dpo": {
+      "safe_labeled_as_unsafe_request": 0.444,
+      "unsafe_labeled_as_safe_request": 0.12
+    },
+    "ppo": {
+      "safe_labeled_as_unsafe_request": 0.432,
+      "unsafe_labeled_as_safe_request": 0.12
+    },
+    "grpo": {
+      "safe_labeled_as_unsafe_request": 0.412,
+      "unsafe_labeled_as_safe_request": 0.125
+    }
+  },
+  "math_judge_diagnostics": {
+    "gsm/rlvr": {
+      "tie_rate": 0.95,
+      "agreement_when_verifier_decisive": 0.08333333333333333
+    },
+    "gsm/rlaif": {
+      "tie_rate": 0.9533333333333334,
+      "agreement_when_verifier_decisive": 0.16666666666666666
+    },
+    "transfer/rlvr": {
+      "tie_rate": 0.78,
+      "agreement_when_verifier_decisive": 0.25
+    },
+    "transfer/rlaif": {
+      "tie_rate": 0.78,
+      "agreement_when_verifier_decisive": 0.3333333333333333
+    }
+  },
+  "limits": [
+    "No model likelihood or tensor recomputation: no local Torch installed.",
+    "GRPO normalization forks have unequal actual emitted-token totals (4793 vs 4914).",
+    "Safety judge contradicts benchmark request classes; blind human audit has been completed and recorded in results/task4_safety/.",
+    "Pairwise judge collapses unparsable output into TIE; raw judge text was not saved, so valid ties cannot be separated from parse failures.",
+    "This is a numerical bookkeeping audit, not human-authored coursework interpretation."
+  ]
+}

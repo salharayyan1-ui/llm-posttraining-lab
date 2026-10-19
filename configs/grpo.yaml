@@ -1,0 +1,27 @@
+base_config: configs/base.yaml
+updates: 20
+fork_updates: 8
+prompts_per_update: 1
+policy_epochs: 1
+learning_rate: 5.0e-6
+clip_epsilon: 0.20
+kl_beta: 0.10
+num_generations: 4
+group_sizes: [2, 4, 8]
+max_prompt_length: 256
+max_completion_length: 512
+mask_truncated_completions: true
+max_grad_norm: 1.0
+output: outputs/task3_grpo/standard
+results_dir: results/task3_grpo
+group_cache: cached/grpo_k_cache.jsonl
+cache_generation_cap: 768
+
+# Student additions (implementation choices the release leaves open; identical for every run).
+fork_output_dir: outputs/task3_grpo
+eval_prompts: 100                  # fixed prefix of rl_prompt_pool_eval used for held-out evaluation
+eval_max_completion_length: 768    # same frozen-evaluation cap as PPO (and the K-cache generation cap)
+reward_max_length: 1280            # as in ppo.yaml: 256 prompt + 768 response must fit, or the RM sees a cut-off response
+eval_batch_size: 8
+group_size_resamples: 200          # random within-prompt partitions averaged in the K study
+practical_std_threshold: 0.1       # extra informativeness threshold in reward units (continuous RM)

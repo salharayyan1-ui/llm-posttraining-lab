@@ -1,0 +1,6 @@
+base_config: configs/smoke/feedback.yaml
+devices:
+  policy: cuda:0
+  reward: cuda:1
+  value: cuda:1
+  judge: cuda:1

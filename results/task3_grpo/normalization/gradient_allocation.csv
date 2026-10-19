@@ -1,0 +1,3 @@
+loss_type,n_completions,mean_length,spearman_length_vs_grad_mass,spearman_length_vs_grad_per_token,grad_mass_share_longer_than_group_median
+dr_grpo,22,83.0,0.8974289746035886,-0.055948028013699795,0.48820657961088326
+grpo,22,77.5,-0.03447302736197664,-0.8522184469157504,0.4358924233577148

@@ -1,0 +1,31 @@
+{
+  "cleanup_date": "2026-10-18",
+  "status": "verified",
+  "protected_files_checked": 447,
+  "protected_file_mismatches": [],
+  "canonical_annotation_sheet": "results/task4_safety/manual_audit_sheet.csv",
+  "canonical_report": "report/REPORT.md",
+  "retained_figure_format": "PDF",
+  "figure_count": 11,
+  "annotation_status_unchanged": true,
+  "external_recovery_directory": "../pa2-llm-posttraining-recovery-20261018",
+  "moved_directories": [
+    "archive",
+    "docs/gpu_session",
+    "logs/gpu_session",
+    "evaluation_report_and_labels",
+    "results/task4_safety/audit_history"
+  ],
+  "removed_files": [
+    "results/task4_safety/manual_audit_sheet_labelled.csv",
+    "results/task4_safety/MANUAL_AUDIT_ANALYSIS.md",
+    "results/reproducibility/results_consistency_check_20261009.json",
+    "results/reproducibility/pa2_status_recheck_20261009.json",
+    "cached/ppo_rollout_salvage_raw.pt"
+  ],
+  "notes": [
+    "Latest consistency check retained at results/reproducibility/results_consistency_check.json.",
+    "Model artifacts and per-experiment records retained even where conditions produced identical bytes.",
+    "Summary refresh never modifies annotations or promotes their review status."
+  ]
+}

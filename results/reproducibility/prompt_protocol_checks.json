@@ -1,0 +1,16 @@
+{
+  "checked_utc": "2026-10-05T19:02:49.067264+00:00",
+  "scheduled_training": {
+    "rows": 20,
+    "truncated_contexts": 8,
+    "maximum_prompt_tokens": 256,
+    "all_headers_preserved": true
+  },
+  "heldout": {
+    "rows": 100,
+    "truncated_contexts": 15,
+    "maximum_prompt_tokens": 256,
+    "all_headers_preserved": true
+  },
+  "scope": "read-only check of actual fixed scheduled/evaluation prompts with the deployed tokenizer and fitting rule"
+}

@@ -1,0 +1,12 @@
+{
+  "n": 1000,
+  "all_pair_accuracy": 0.674,
+  "all_mean_margin": 0.6526861190795898,
+  "all_median_margin": 0.47705078125,
+  "strict_n": 874,
+  "strict_pair_accuracy": 0.7013729977116705,
+  "strict_mean_margin": 0.7321488857269287,
+  "reward_min": -9.6328125,
+  "reward_max": 5.96484375,
+  "reward_length_spearman": 0.2813963853670478
+}

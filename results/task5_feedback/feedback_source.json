@@ -1,0 +1,80 @@
+{
+  "coverage": {
+    "verifier_decisive_rate_vs_sft": {
+      "rlaif": 0.02,
+      "rlvr": 0.04
+    },
+    "judge_decisive_when_verifier_ties": {
+      "rlaif": 0.04421768707482993,
+      "rlvr": 0.04861111111111111
+    },
+    "reasoning_pair_tie_rate": {
+      "rlvr": 1.0,
+      "rlaif": 1.0
+    }
+  },
+  "noise": {
+    "judge_order_consistency": 0.7625,
+    "verifier_judge_agreement_vs_sft": {
+      "rlaif": 0.94,
+      "rlvr": 0.9166666666666666
+    },
+    "judge_agreement_when_verifier_decisive": {
+      "rlaif": 0.16666666666666666,
+      "rlvr": 0.08333333333333333
+    }
+  },
+  "exploitability": {
+    "filler": {
+      "rlvr_wrong_rate": 0.0,
+      "rlaif_wrong_rate": 0.05
+    },
+    "distractor": {
+      "rlvr_wrong_rate": 0.0,
+      "rlaif_wrong_rate": 0.15
+    },
+    "outcome": {
+      "rlvr_wrong_rate": 0.0,
+      "rlaif_wrong_rate": 0.0
+    },
+    "reasoning": {
+      "rlvr_wrong_rate": 0.0,
+      "rlaif_wrong_rate": 0.0
+    }
+  },
+  "sensitivity": {
+    "rlvr": {
+      "S_reason": 0.0,
+      "reason_tie_rate": 1.0,
+      "reason_wrong_rate": 0.0,
+      "S_outcome": 1.0,
+      "outcome_tie_rate": 0.0,
+      "outcome_wrong_rate": 0.0
+    },
+    "rlaif": {
+      "S_reason": 0.0,
+      "reason_tie_rate": 1.0,
+      "reason_wrong_rate": 0.0,
+      "S_outcome": 0.0,
+      "outcome_tie_rate": 0.925,
+      "outcome_wrong_rate": 0.075
+    },
+    "rlaif_reversed": {
+      "S_reason": 0.0,
+      "reason_tie_rate": 1.0,
+      "reason_wrong_rate": 0.0,
+      "S_outcome": 0.3,
+      "outcome_tie_rate": 0.7,
+      "outcome_wrong_rate": 0.0
+    }
+  },
+  "inference_cost": {
+    "judge_seconds_per_comparison_in_domain": {
+      "rlaif": 0.3405637082240234,
+      "rlvr": 0.32876836738471565
+    },
+    "judge_seconds_per_comparison_diagnostics": 0.22536784854730488,
+    "judge_calls_per_group": "K*(K-1)/2 = 6 for K = 4 (one 3B forward + 4-token decode each)",
+    "verifier": "one regex per response, no model call"
+  }
+}

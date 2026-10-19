@@ -1,0 +1,22 @@
+{
+  "public_assets": {
+    "base_policy": "Qwen/Qwen2.5-1.5B-Instruct",
+    "reward_model": "yavuz-ai/qwen2.5-1.5b-rm-ultrafeedback",
+    "reward_tokenizer": "Qwen/Qwen2.5-1.5B-Instruct",
+    "value_model_init": "Qwen/Qwen2.5-0.5B-Instruct",
+    "ai_judge": "Qwen/Qwen2.5-3B-Instruct",
+    "ultrafeedback": "HuggingFaceH4/ultrafeedback_binarized",
+    "gsm8k": "openai/gsm8k",
+    "xstest_url": "https://raw.githubusercontent.com/paul-rottger/xstest/main/xstest_prompts.csv"
+  },
+  "versions": {
+    "transformers": "4.57.1",
+    "trl": "0.27.2",
+    "peft": "0.17.1",
+    "datasets": "4.8.5",
+    "accelerate": "1.15.0",
+    "bitsandbytes": "0.50.2",
+    "huggingface_hub": "0.36.2",
+    "torch": "2.11.0+cu128"
+  }
+}

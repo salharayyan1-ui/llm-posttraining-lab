@@ -1,0 +1,9 @@
+{
+  "generations_per_prompt": 8,
+  "n_prompts": 24,
+  "partition": "8/K disjoint groups per prompt; contiguous by generation_index + seeded random partitions",
+  "resamples": 200,
+  "difficulty_bins": "tertiles of per-prompt mean reward over all 8 completions (hard < medium < easy)",
+  "informative_tolerance": 1e-06,
+  "practical_std_threshold": 0.1
+}

@@ -1,0 +1,7 @@
+dataset,policy,no_final,correct,wrong_final,truncated
+in_domain,sft,187,84,22,7.0
+in_domain,rlvr,181,90,22,7.0
+in_domain,rlaif,190,82,23,5.0
+transfer,sft,44,43,13,0.0
+transfer,rlvr,42,45,13,0.0
+transfer,rlaif,42,45,13,0.0

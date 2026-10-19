@@ -1,0 +1,29 @@
+# Bytecode and runtime caches
+__pycache__/
+*.pyc
+.cache/
+.pytest_cache/
+.venv/
+wandb/
+
+# Course checkpoints and caches (downloaded via python -m scripts.download_assets)
+checkpoints/
+cached/
+*.pt
+*.pth
+*.safetensors
+*.bin
+
+# Student-trained model adapters and checkpoints (per manual lines 88, 621)
+outputs/
+
+# Large downloaded datasets (downloaded via python -m scripts.download_assets)
+# Only track tiny fixed evaluation files per data/README.md and manual
+data/*.jsonl
+data/*.csv
+!data/word_limit_prompts.jsonl
+!data/math_transfer_eval.jsonl
+
+# Scratch logs
+logs/
+

@@ -1,0 +1,93 @@
+{
+  "dataset": "transfer",
+  "decoding": "greedy",
+  "max_new_tokens": 512,
+  "policies": {
+    "sft": {
+      "n": 100,
+      "exact_accuracy": 0.43,
+      "format_compliance": 0.56,
+      "truncation_rate": 0.0,
+      "response_tokens": {
+        "n": 100,
+        "mean": 165.09,
+        "std": 71.47644297249269,
+        "median": 145.5,
+        "q1": 114.75,
+        "q3": 194.5,
+        "iqr": 79.75
+      },
+      "failure_types": {
+        "no_final": 44,
+        "correct": 43,
+        "wrong_final": 13
+      }
+    },
+    "rlvr": {
+      "n": 100,
+      "exact_accuracy": 0.45,
+      "format_compliance": 0.58,
+      "truncation_rate": 0.0,
+      "response_tokens": {
+        "n": 100,
+        "mean": 163.91,
+        "std": 71.88603410955427,
+        "median": 140.0,
+        "q1": 114.0,
+        "q3": 193.0,
+        "iqr": 79.0
+      },
+      "failure_types": {
+        "correct": 45,
+        "no_final": 42,
+        "wrong_final": 13
+      }
+    },
+    "rlaif": {
+      "n": 100,
+      "exact_accuracy": 0.45,
+      "format_compliance": 0.58,
+      "truncation_rate": 0.0,
+      "response_tokens": {
+        "n": 100,
+        "mean": 163.62,
+        "std": 72.29990041486917,
+        "median": 140.0,
+        "q1": 113.75,
+        "q3": 193.0,
+        "iqr": 79.25
+      },
+      "failure_types": {
+        "correct": 45,
+        "no_final": 42,
+        "wrong_final": 13
+      }
+    }
+  },
+  "pairwise_vs_sft": {
+    "rlaif": {
+      "n": 100,
+      "wins": 9,
+      "ties": 78,
+      "losses": 13,
+      "win_rate": 0.48,
+      "verifier_judge_agreement": 0.77,
+      "agreement_when_verifier_decisive": 0.3333333333333333,
+      "judge_decisive_when_verifier_ties": 0.20212765957446807,
+      "verifier_decisive_rate": 0.06,
+      "judge_seconds_per_comparison": 0.24623863199182475
+    },
+    "rlvr": {
+      "n": 100,
+      "wins": 9,
+      "ties": 78,
+      "losses": 13,
+      "win_rate": 0.48,
+      "verifier_judge_agreement": 0.76,
+      "agreement_when_verifier_decisive": 0.25,
+      "judge_decisive_when_verifier_ties": 0.1956521739130435,
+      "verifier_decisive_rate": 0.08,
+      "judge_seconds_per_comparison": 0.2621311533590779
+    }
+  }
+}

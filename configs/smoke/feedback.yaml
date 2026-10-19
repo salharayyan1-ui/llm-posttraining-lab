@@ -1,0 +1,14 @@
+# Smoke test: every Task 4/5 code path at toy size (python -m scripts.run_pipeline --smoke).
+base_config: configs/feedback.yaml
+results_dir: results_smoke
+judge_cache: results_smoke/task5_feedback/judge_cache.json
+safety_max_new_tokens: 32
+math_max_new_tokens: 64
+manual_audit_per_class: 2
+xstest_limit_per_class: 3
+math_eval_limit: 4
+diagnostic_problems: 2
+policies:
+  dpo: outputs/smoke/task1_dpo/standard
+  ppo: outputs/smoke/task2_ppo/standard
+  grpo: outputs/smoke/task3_grpo/standard

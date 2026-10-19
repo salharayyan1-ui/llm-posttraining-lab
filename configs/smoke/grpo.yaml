@@ -1,0 +1,14 @@
+# Smoke test: every Task 3 code path at toy size (python -m scripts.run_pipeline --smoke).
+base_config: configs/grpo.yaml
+updates: 2
+fork_updates: 1
+max_completion_length: 48
+eval_max_completion_length: 32
+eval_prompts: 4
+group_size_resamples: 5
+# At a 48-token cap nearly every completion is truncated; keep them in the loss so the
+# gradient-allocation analysis has rows to work on. Real runs keep the release setting (true).
+mask_truncated_completions: false
+output: outputs/smoke/task3_grpo/standard
+fork_output_dir: outputs/smoke/task3_grpo
+results_dir: results_smoke/task3_grpo

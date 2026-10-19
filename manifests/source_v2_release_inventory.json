@@ -1,0 +1,35 @@
+{
+  "required_data": [
+    "data/dpo_standard_train.jsonl",
+    "data/dpo_standard_eval.jsonl",
+    "data/dpo_length_balanced_train.jsonl",
+    "data/dpo_length_stratified_eval.jsonl",
+    "data/rl_prompt_pool_train.jsonl",
+    "data/rl_prompt_pool_eval.jsonl",
+    "data/xstest_safety_prompts.csv",
+    "data/gsm8k_rl_train.jsonl",
+    "data/gsm8k_eval.jsonl",
+    "data/task5_controlled_reward_diagnostics.jsonl"
+  ],
+  "course_checkpoints": [
+    "checkpoints/ppo_midpoint_policy/",
+    "checkpoints/ppo_midpoint_value/",
+    "checkpoints/grpo_midpoint_policy/",
+    "checkpoints/rlvr_policy/",
+    "checkpoints/rlaif_policy/"
+  ],
+  "cached_diagnostics": [
+    "cached/ppo_rollout.pt",
+    "cached/grpo_k_cache.jsonl"
+  ],
+  "public_assets": {
+    "base_policy": "Qwen/Qwen2.5-1.5B-Instruct",
+    "reward_model": "yavuz-ai/qwen2.5-1.5b-rm-ultrafeedback",
+    "reward_tokenizer": "Qwen/Qwen2.5-1.5B-Instruct",
+    "value_model_init": "Qwen/Qwen2.5-0.5B-Instruct",
+    "ai_judge": "Qwen/Qwen2.5-3B-Instruct",
+    "ultrafeedback": "HuggingFaceH4/ultrafeedback_binarized",
+    "gsm8k": "openai/gsm8k",
+    "xstest_url": "https://raw.githubusercontent.com/paul-rottger/xstest/main/xstest_prompts.csv"
+  }
+}

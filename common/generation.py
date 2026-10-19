@@ -1,0 +1,188 @@
+from __future__ import annotations
+
+import torch
+import torch.nn.functional as F
+
+from common.metrics import token_entropies
+from common.data import fit_prompt_messages
+
+
+def _response_mask(response_ids: torch.Tensor, eos_id: int | None) -> torch.Tensor:
+    """1 for generated tokens up to and including the first EOS, 0 for the padding generate() adds after it."""
+    mask = torch.ones_like(response_ids, dtype=torch.float32)
+    if eos_id is None:
+        return mask
+    for i in range(response_ids.shape[0]):
+        eos_pos = (response_ids[i] == eos_id).nonzero(as_tuple=False)
+        if len(eos_pos):
+            first = int(eos_pos[0].item())
+            if first + 1 < response_ids.shape[1]:
+                mask[i, first + 1:] = 0.0
+    return mask
+
+
+def batch_generate(
+    model,
+    tokenizer,
+    prompts: list[list[dict]],
+    max_prompt_length: int,
+    max_new_tokens: int,
+    temperature: float = 0.7,
+    top_p: float = 0.9,
+    do_sample: bool = True,
+):
+    """Generate one response per chat prompt.
+
+    Layout of the returned batch (relied on by every log-prob helper below): prompts are
+    left-padded to a common `prompt_width`, so position `prompt_width` is the first response token
+    in every row; responses are right-padded after EOS and masked by `response_mask`.
+    """
+    effective_prompts = [fit_prompt_messages(tokenizer, p, max_prompt_length) for p in prompts]
+    original_lengths = [len(tokenizer.apply_chat_template(p, tokenize=True, add_generation_prompt=True)) for p in prompts]
+    rendered = [
+        tokenizer.apply_chat_template(p, tokenize=False, add_generation_prompt=True)
+        for p in effective_prompts
+    ]
+    enc = tokenizer(
+        rendered,
+        return_tensors="pt",
+        padding=True,
+        truncation=False,
+    )
+    device = next(model.parameters()).device
+    enc = {k: v.to(device) for k, v in enc.items()}
+
+    was_training = model.training
+    model.eval()
+    kwargs = {
+        "max_new_tokens": max_new_tokens,
+        "do_sample": do_sample,
+        "pad_token_id": tokenizer.pad_token_id,
+        "eos_token_id": tokenizer.eos_token_id,
+        # Trainable policies set config.use_cache=False for gradient checkpointing; generation
+        # should still use the KV cache, otherwise every new token re-encodes the full sequence.
+        "use_cache": True,
+    }
+    if do_sample:
+        kwargs.update({"temperature": temperature, "top_p": top_p})
+
+    # These token IDs are later saved by autograd during PPO/GRPO scoring.
+    # no_grad keeps them ordinary tensors, unlike inference_mode.
+    with torch.no_grad():
+        seq = model.generate(**enc, **kwargs)
+    if was_training:
+        model.train()
+
+    prompt_width = enc["input_ids"].shape[1]
+    response_ids = seq[:, prompt_width:]
+    rmask = _response_mask(response_ids, tokenizer.eos_token_id).to(seq.device)
+    terminated, truncated, lengths, texts = [], [], [], []
+    for row, mask in zip(response_ids, rmask):
+        n = int(mask.sum().item())
+        has_eos = bool((row[:n] == tokenizer.eos_token_id).any().item()) if tokenizer.eos_token_id is not None else False
+        terminated.append(has_eos)
+        truncated.append(bool(n >= max_new_tokens and not has_eos))
+        lengths.append(n)
+        texts.append(tokenizer.decode(row[:n], skip_special_tokens=True))
+
+    attn = torch.ones_like(seq, dtype=torch.long)
+    attn[:, :prompt_width] = enc["attention_mask"]
+    return {
+        "prompt_messages": effective_prompts,
+        "original_prompt_lengths": original_lengths,
+        "prompt_truncated": [n > max_prompt_length for n in original_lengths],
+        "effective_generation_config": {**model.generation_config.to_dict(), **kwargs},
+        "sequences": seq,
+        "attention_mask": attn,
+        "prompt_width": prompt_width,
+        "response_ids": response_ids,
+        "response_mask": rmask,
+        "responses": texts,
+        "terminated_with_eos": terminated,
+        "truncated": truncated,
+        "response_lengths": lengths,
+    }
+
+
+def response_token_logprobs(model, sequences, attention_mask, prompt_width, response_ids):
+    """log pi(y_t | x, y_<t) of every response token, [batch, steps], plus the matching logits.
+
+    Logits at position i predict token i+1, so the response tokens (positions prompt_width ...)
+    are scored by logits prompt_width-1 ... -2. Differentiable unless called under no_grad.
+    """
+    outputs = model(
+        input_ids=sequences,
+        attention_mask=attention_mask,
+        use_cache=False,
+        return_dict=True,
+    )
+    logits = outputs.logits[:, prompt_width - 1 : -1, :]  # shift by one: logits that predict response tokens
+    logits = logits[:, : response_ids.shape[1], :]
+    logp = F.log_softmax(logits.float(), dim=-1)  # float32 for a stable normalization over 151k tokens
+    chosen = torch.gather(logp, -1, response_ids.unsqueeze(-1)).squeeze(-1)  # pick the sampled token
+    return chosen, logits
+
+
+@torch.no_grad()
+def scored_response_logprobs(model, gen: dict, chunk_rows: int = 2, with_entropy: bool = True):
+    """No-grad sampled-token log-probs (and exact entropies) for a `batch_generate` output.
+
+    Rows are scored in small chunks so the float32 vocabulary-sized logits never exist for the
+    whole batch at once. Returns ([batch, steps] logp, [batch, steps] entropy or None).
+    """
+    logps, ents = [], []
+    for start in range(0, gen["sequences"].shape[0], chunk_rows):
+        rows = slice(start, start + chunk_rows)
+        logp, logits = response_token_logprobs(
+            model, gen["sequences"][rows], gen["attention_mask"][rows], gen["prompt_width"], gen["response_ids"][rows]
+        )
+        logps.append(logp)
+        if with_entropy:
+            ents.append(token_entropies(logits))
+        del logits
+    return torch.cat(logps), (torch.cat(ents) if with_entropy else None)
+
+
+def response_sequence_logprobs(model, batch: dict):
+    """DPO sequence log-prob: sum of response-token log-probs under teacher forcing (prompt excluded).
+
+    Returns (per-sequence sum [batch], per-token log-probs, the shifted response mask).
+    """
+    outputs = model(
+        input_ids=batch["input_ids"],
+        attention_mask=batch["attention_mask"],
+        use_cache=False,
+        return_dict=True,
+    )
+    logits = outputs.logits[:, :-1, :]  # logits at i predict token i+1 ...
+    labels = batch["input_ids"][:, 1:]  # ... so labels and the mask are shifted left by one
+    mask = batch["response_mask"][:, 1:]
+    logp = F.log_softmax(logits.float(), dim=-1)
+    tok = torch.gather(logp, -1, labels.unsqueeze(-1)).squeeze(-1)
+    return (tok * mask).sum(-1), tok, mask
+
+
+@torch.no_grad()
+def score_reward_pairs(rm_model, rm_tokenizer, prompts, responses, max_length=1024):
+    """Scalar learned reward for each (prompt, response); text longer than max_length is cut from the right."""
+    texts = []
+    for prompt, response in zip(prompts, responses):
+        messages = list(prompt) + [{"role": "assistant", "content": response}]
+        texts.append(
+            rm_tokenizer.apply_chat_template(
+                messages,
+                tokenize=False,
+                add_generation_prompt=False,
+            )
+        )
+
+    device = next(rm_model.parameters()).device
+    enc = rm_tokenizer(
+        texts,
+        return_tensors="pt",
+        padding=True,
+        truncation=True,
+        max_length=max_length,
+    )
+    enc = {k: v.to(device) for k, v in enc.items()}
+    return rm_model(**enc).logits[:, 0].float()

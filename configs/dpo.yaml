@@ -1,0 +1,22 @@
+base_config: configs/base.yaml
+beta: 0.10
+betas: [0.03, 0.10, 0.30]
+learning_rate: 2.0e-5
+weight_decay: 0.0
+batch_size: 2
+grad_accum_steps: 8
+epochs: 1
+short_ablation_examples: 600
+max_sequence_length: 768
+max_generation_tokens: 256
+max_grad_norm: 1.0
+standard_output: outputs/task1_dpo/standard
+length_output: outputs/task1_dpo/length_balanced
+results_dir: results/task1_dpo
+
+# Evaluation protocol (student additions; identical for every Task 1 condition).
+max_prompt_length: 512        # generation prompt budget; longer held-out prompts are skipped and listed
+eval_generation_prompts: 300  # fixed prefix of dpo_standard_eval used for sampled generations
+eval_batch_size: 8
+eval_pair_batch_size: 4
+word_limit_samples: 5         # sampled responses per common word-limit prompt

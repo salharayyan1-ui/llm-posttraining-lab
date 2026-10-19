@@ -1,0 +1,14 @@
+{
+  "train_per_stratum": 500,
+  "eval_per_stratum": 82,
+  "train_available": {
+    "preferred_longer": 11109,
+    "length_matched": 2582,
+    "rejected_longer": 9552
+  },
+  "eval_available": {
+    "preferred_longer": 324,
+    "length_matched": 82,
+    "rejected_longer": 309
+  }
+}

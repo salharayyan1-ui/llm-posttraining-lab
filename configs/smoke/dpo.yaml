@@ -1,0 +1,12 @@
+# Smoke test: every Task 1 code path at toy size (python -m scripts.run_pipeline --smoke).
+# Outputs go to outputs/smoke and results_smoke and never mix with real runs.
+base_config: configs/dpo.yaml
+max_train_examples: 16
+short_ablation_examples: 16
+eval_pair_limit: 4
+eval_generation_prompts: 4
+word_limit_samples: 1
+max_generation_tokens: 32
+standard_output: outputs/smoke/task1_dpo/standard
+length_output: outputs/smoke/task1_dpo/length_balanced
+results_dir: results_smoke/task1_dpo

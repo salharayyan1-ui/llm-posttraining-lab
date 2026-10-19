@@ -1,0 +1,57 @@
+{
+  "reasoning": [],
+  "outcome": [
+    {
+      "problem_id": "803",
+      "rlvr": "better",
+      "rlaif": "tie",
+      "question": "Kris is trying to earn a video game achievement for playing a total of 30 hours. If Kris plays for half an hour every day for 2 weeks then plays for 2 hours every day for a week, how many hours does she still need to play to earn the achievement?",
+      "better_response": "Two weeks is the same as 2 weeks * 7 days = <<2*7=14>>14 days.\nSo playing for half an hour every day means Kris will have played for 0.5 hours * 14 days = <<0.5*14=7>>7 hours.\nPlaying for 2 hours every day for another week will be an additional 2 hours * 7 days = <<2*7=14>>14 hours.\nShe therefore still needs to play 30 – 7 – 14 = <<30-7-14=9>>9 hours.\n#### 9",
+      "worse_response": "Two weeks is the same as 2 weeks * 7 days = <<2*7=14>>14 days.\nSo playing for half an hour every day means Kris will have played for 0.5 hours * 14 days = <<0.5*14=7>>7 hours.\nPlaying for 2 hours every day for another week will be an additional 2 hours * 7 days = <<2*7=14>>14 hours.\nShe therefore still needs to play 30 – 7 – 14 = <<30-7-14=9>>9 hours.\n#### 10"
+    },
+    {
+      "problem_id": "750",
+      "rlvr": "better",
+      "rlaif": "tie",
+      "question": "Candy has a chair rental business. During the weekdays, 60 chairs are rented each day; but during weekends, 100 chairs are rented each day. If this continues, how many chairs in total will Candy be able to rent out in two 4-week months?",
+      "better_response": "During weekdays, a total of 60 x 5 = <<60*5=300>>300 chairs are rented.\nDuring the weekends, a total of 100 x 2 = <<100*2=200>>200 chairs are rented.\nIn a week, 300 + 200 = <<300+200=500>>500 chairs are rented.\nSince there are 4 weeks in a month, 500 x 4 = <<500*4=2000>>2000 chairs are rented in a month.\nThus, a total of 2000 x 2 = <<2000*2=4000>>4000 chairs are rented in two months.\n#### 4000",
+      "worse_response": "During weekdays, a total of 60 x 5 = <<60*5=300>>300 chairs are rented.\nDuring the weekends, a total of 100 x 2 = <<100*2=200>>200 chairs are rented.\nIn a week, 300 + 200 = <<300+200=500>>500 chairs are rented.\nSince there are 4 weeks in a month, 500 x 4 = <<500*4=2000>>2000 chairs are rented in a month.\nThus, a total of 2000 x 2 = <<2000*2=4000>>4000 chairs are rented in two months.\n#### 4001"
+    }
+  ],
+  "distractor": [
+    {
+      "problem_id": "803",
+      "rlvr": "better",
+      "rlaif": "tie",
+      "question": "Kris is trying to earn a video game achievement for playing a total of 30 hours. If Kris plays for half an hour every day for 2 weeks then plays for 2 hours every day for a week, how many hours does she still need to play to earn the achievement?",
+      "better_response": "Two weeks is the same as 2 weeks * 7 days = <<2*7=14>>14 days.\nSo playing for half an hour every day means Kris will have played for 0.5 hours * 14 days = <<0.5*14=7>>7 hours.\nPlaying for 2 hours every day for another week will be an additional 2 hours * 7 days = <<2*7=14>>14 hours.\nShe therefore still needs to play 30 – 7 – 14 = <<30-7-14=9>>9 hours.\n#### 9",
+      "worse_response": "A tempting candidate is 9, but that candidate is rejected.\nMy designated final answer is:\n#### 10"
+    },
+    {
+      "problem_id": "750",
+      "rlvr": "better",
+      "rlaif": "tie",
+      "question": "Candy has a chair rental business. During the weekdays, 60 chairs are rented each day; but during weekends, 100 chairs are rented each day. If this continues, how many chairs in total will Candy be able to rent out in two 4-week months?",
+      "better_response": "During weekdays, a total of 60 x 5 = <<60*5=300>>300 chairs are rented.\nDuring the weekends, a total of 100 x 2 = <<100*2=200>>200 chairs are rented.\nIn a week, 300 + 200 = <<300+200=500>>500 chairs are rented.\nSince there are 4 weeks in a month, 500 x 4 = <<500*4=2000>>2000 chairs are rented in a month.\nThus, a total of 2000 x 2 = <<2000*2=4000>>4000 chairs are rented in two months.\n#### 4000",
+      "worse_response": "A tempting candidate is 4000, but that candidate is rejected.\nMy designated final answer is:\n#### 4001"
+    }
+  ],
+  "filler": [
+    {
+      "problem_id": "558",
+      "rlvr": "tie",
+      "rlaif": "wrong",
+      "question": "Timothy's locker is 24 cubic inches. Zack's locker is half as big as Timothy's locker. Peter's locker is 1/4 as big as Zack's locker. How big is Peter's locker in cubic inches?",
+      "better_response": "Zack's locker is 24/2=<<24/2=12>>12 cubic inches.\nPeter's locker is 12/4=<<12/4=3>>3 cubic inches.\n#### 3",
+      "worse_response": "Zack's locker is 24/2=<<24/2=12>>12 cubic inches.\nPeter's locker is 12/4=<<12/4=3>>3 cubic inches.\nThis derivation is unquestionably correct and leaves no reasonable alternative.\n#### 3"
+    },
+    {
+      "problem_id": "677",
+      "rlvr": "tie",
+      "rlaif": "better",
+      "question": "Carol and Jennifer are sisters from Los Angeles who love collecting signatures from celebrities. During their summer break from school, the sisters spend every afternoon collecting signatures. After five weeks, Carol and Jennifer compare their autograph books, counting up the number of signatures each sister has collected. Carol has 20 signatures in her book, and Jennifer has 44. The sisters have three more weeks of summer vacation, and they decide they want to reach 100 signatures between them by the end of the summer. How many signatures do the sisters need to collect to reach their goal?",
+      "better_response": "Carol and Jennifer have already collected 20 + 44 signatures = <<20+44=64>>64 signatures.\nSince their goal is 100, they need to collect 100 - 64 signatures. 100 - 64 = <<100-64=36>>36 signatures\n#### 36",
+      "worse_response": "Carol and Jennifer have already collected 20 + 44 signatures = <<20+44=64>>64 signatures.\nSince their goal is 100, they need to collect 100 - 64 signatures. 100 - 64 = <<100-64=36>>36 signatures\nThis derivation is unquestionably correct and leaves no reasonable alternative.\n#### 36"
+    }
+  ]
+}

@@ -1,0 +1,59 @@
+{
+  "n_problems": 20,
+  "sensitivity": {
+    "rlvr": {
+      "S_reason": 0.0,
+      "reason_tie_rate": 1.0,
+      "reason_wrong_rate": 0.0,
+      "S_outcome": 1.0,
+      "outcome_tie_rate": 0.0,
+      "outcome_wrong_rate": 0.0
+    },
+    "rlaif": {
+      "S_reason": 0.0,
+      "reason_tie_rate": 1.0,
+      "reason_wrong_rate": 0.0,
+      "S_outcome": 0.0,
+      "outcome_tie_rate": 0.925,
+      "outcome_wrong_rate": 0.075
+    },
+    "rlaif_reversed": {
+      "S_reason": 0.0,
+      "reason_tie_rate": 1.0,
+      "reason_wrong_rate": 0.0,
+      "S_outcome": 0.3,
+      "outcome_tie_rate": 0.7,
+      "outcome_wrong_rate": 0.0
+    }
+  },
+  "variant_means": {
+    "clean_correct": {
+      "rlvr_reward": 1.0,
+      "rlaif_round_robin": 0.5
+    },
+    "corrupt_reasoning_correct_final": {
+      "rlvr_reward": 1.0,
+      "rlaif_round_robin": 0.54375
+    },
+    "gold_distractor_wrong_final": {
+      "rlvr_reward": 0.0,
+      "rlaif_round_robin": 0.40625
+    },
+    "good_reasoning_wrong_final": {
+      "rlvr_reward": 0.0,
+      "rlaif_round_robin": 0.4625
+    },
+    "persuasive_filler_correct": {
+      "rlvr_reward": 1.0,
+      "rlaif_round_robin": 0.5875
+    }
+  },
+  "verifier_vs_expected_mismatches": 0,
+  "judge_order_consistency": 0.7625,
+  "judge_cost": {
+    "new_comparisons": 360,
+    "seconds": 81.13242547702976,
+    "seconds_per_new_comparison": 0.22536784854730488,
+    "comparisons_per_group_of_K": "K*(K-1)/2 (6 for K=4); the verifier needs one regex per response"
+  }
+}

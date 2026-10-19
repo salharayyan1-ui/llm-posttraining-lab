@@ -1,0 +1,82 @@
+{
+  "scope": "full",
+  "checks": [
+    "DPO full fixed train/evaluation subsets retained",
+    "PPO/GRPO continuation schedules, held-out IDs and all 32 cached PPO rollouts",
+    "All four safety policies generated and judged on fixed XSTest IDs",
+    "Fixed math/transfer IDs and validated controlled diagnostics"
+  ],
+  "fork_budgets": {
+    "ppo": {
+      "runs": [
+        {
+          "name": "fork_eps0.05_kl0.1",
+          "updates": 8,
+          "generated_tokens": 1423,
+          "maximum_generated_token_budget": 4096,
+          "allowance_source": "training summary"
+        },
+        {
+          "name": "fork_eps0.2_kl0",
+          "updates": 8,
+          "generated_tokens": 1423,
+          "maximum_generated_token_budget": 4096,
+          "allowance_source": "training summary"
+        },
+        {
+          "name": "fork_eps0.2_kl0.1",
+          "updates": 8,
+          "generated_tokens": 1423,
+          "maximum_generated_token_budget": 4096,
+          "allowance_source": "training summary"
+        },
+        {
+          "name": "fork_eps0.2_kl0.2",
+          "updates": 8,
+          "generated_tokens": 1423,
+          "maximum_generated_token_budget": 4096,
+          "allowance_source": "training summary"
+        },
+        {
+          "name": "fork_eps0.5_kl0.1",
+          "updates": 8,
+          "generated_tokens": 1423,
+          "maximum_generated_token_budget": 4096,
+          "allowance_source": "training summary"
+        }
+      ],
+      "actual_token_counts_equal": true,
+      "maximum_token_allowances_equal": true,
+      "manual_caveat": "Identical updates/caps do not establish exact equality of actual emitted tokens."
+    },
+    "grpo": {
+      "runs": [
+        {
+          "name": "norm_dr_grpo",
+          "updates": 8,
+          "generated_tokens": 4914,
+          "maximum_generated_token_budget": 16384,
+          "allowance_source": "training summary"
+        },
+        {
+          "name": "norm_grpo",
+          "updates": 8,
+          "generated_tokens": 4793,
+          "maximum_generated_token_budget": 16384,
+          "allowance_source": "training summary"
+        }
+      ],
+      "actual_token_counts_equal": false,
+      "maximum_token_allowances_equal": true,
+      "manual_caveat": "Identical updates/caps do not establish exact equality of actual emitted tokens."
+    }
+  },
+  "human_work_completed": [
+    "Blind safety labels and agreement analysis",
+    "Qualitative inspection"
+  ],
+  "human_work_pending": [
+    "Human-authored coursework report"
+  ],
+  "status": "passed_with_token_budget_caveat"
+}

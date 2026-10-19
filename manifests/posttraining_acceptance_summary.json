@@ -1,0 +1,79 @@
+{
+  "ppo": {
+    "stage": "ppo",
+    "accepted": true,
+    "metrics": {
+      "n_policy_eval_prompts": 32,
+      "student_response_length": 768,
+      "policy_truncation_rate_at_768": 0.125,
+      "policy_eos_rate_at_768": 0.875,
+      "policy_mean_response_tokens_at_768": 235.28125,
+      "policy_mean_effective_terminal_reward_at_768": 1.034637451171875,
+      "critic_mc_return_explained_variance": -3.672137408963499,
+      "critic_mc_return_correlation": -0.06086336021509284,
+      "critic_value_std": 2.7539250795837407,
+      "critic_quality": "weak",
+      "critic_release_status": "Released as the PPO-trained value model for controlled continuation experiments. Held-out MC-return prediction is weak; all PPO ablation branches must start from this identical critic checkpoint.",
+      "offline_critic_repair_used": false,
+      "known_limitations": [
+        "The PPO value model does not generalize well to held-out Monte-Carlo returns.",
+        "PPO policy truncation at a 768-token evaluation cap was 4/32 = 12.5%.",
+        "Interpret PPO clipping/KL experiments primarily as controlled relative comparisons between branches, not as evidence of an optimal value function."
+      ]
+    },
+    "reasons": [],
+    "timestamp_unix": 1790300001.2344053
+  },
+  "grpo": {
+    "stage": "grpo",
+    "accepted": true,
+    "metrics": {
+      "mean_clipped_ratio": 0.245,
+      "mean_completion_length": 254.165,
+      "mean_reward": 1.3793841552734376,
+      "mean_reward_std": 0.6872261428833008,
+      "mean_frac_reward_zero_std": 0.02,
+      "mean_kl": 0.0006345753992718528
+    },
+    "reasons": [],
+    "timestamp_unix": 1790336263.1866658
+  },
+  "rlvr": {
+    "stage": "rlvr",
+    "accepted": true,
+    "metrics": {
+      "mean_clipped_ratio": 0.028125,
+      "last_clipped_ratio": 0.0,
+      "mean_completion_length": 261.209375,
+      "mean_reward": 0.45625,
+      "last_reward": 0.5,
+      "mean_reward_std": 0.38570507764816286,
+      "mean_frac_reward_zero_std": 0.275,
+      "mean_kl": 0.00030816445100754206
+    },
+    "reasons": [],
+    "timestamp_unix": 1790339809.7488482
+  },
+  "rlaif": {
+    "stage": "rlaif",
+    "accepted": true,
+    "metrics": {
+      "mean_clipped_ratio": 0.035,
+      "last_clipped_ratio": 0.0,
+      "mean_completion_length": 261.35,
+      "mean_reward": 0.5,
+      "last_reward": 0.5,
+      "mean_reward_std": 0.11034848362207413,
+      "mean_frac_reward_zero_std": 0.38,
+      "mean_kl": 0.00033622460530750685
+    },
+    "reasons": [],
+    "timestamp_unix": 1790341010.182189
+  },
+  "completion_budgets": {
+    "ppo": 512,
+    "preference_grpo": 512,
+    "rlvr_rlaif": 512
+  },
+  "seed": 6304
+}
